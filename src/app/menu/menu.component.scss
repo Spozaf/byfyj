@@ -1,0 +1,206 @@
+@mixin grid-potrawy($cols, $mgn) {
+    float: left;
+    text-align: center;
+    margin-right: $mgn;
+    margin-top: 2%;
+    width: ((100% - (($cols - 1)*$mgn))/$cols);
+    &:nth-child(#{$cols}n){
+        margin-right: 0;
+    }
+}
+
+@mixin desktopMobileDania($screen) {
+    @if $screen == 'desktop'{
+        @include grid-potrawy(3, 0.5%);
+    } @else {
+        @include grid-potrawy(1, 0%);
+    }
+    
+    font-family: 'caladea';
+    div{
+        @if $screen == 'desktop' {
+            height: 11vh;
+        } @else{
+           
+        }
+        
+    }
+    .potrawa{
+        color: rgba(132, 70, 37, 1);
+        @if $screen == 'desktop' {
+            font-size: 1.5em;
+        } @else{
+            font-size: 2em;
+        }
+    }
+    .cena{
+        color: rgba(132, 70, 37, 0.5);
+        @if $screen == 'desktop' {
+            font-size: 1.1vw;
+        } @else{
+            font-size: 1.5vh;
+        }
+    }
+}
+
+@mixin desktopMobileNaglowek($screen) {
+    .menu{
+        font-family: 'brannboll';
+        color: rgba(132, 70, 37, 1);
+        @if $screen == 'desktop' {
+            font-size: 4vw;
+        } @else{
+            font-size: 3em;
+        }
+    }
+    p{
+        font-family: 'caladea';
+        color: rgba(132, 70, 37, 1);
+        @if $screen == 'desktop' {
+            font-size: 3em;
+        } @else{
+            font-size: 1.2em;
+        }
+        
+    }
+}
+
+/* mat-card{
+    background-color: #ddc391;
+    margin: 10px 10px 10px 10px;
+    mat-grid-list{
+        .menu-naglowek{
+            mat-card{
+                margin: none;
+                text-align: center;
+                transition: none !important;
+                box-shadow: none !important;
+                .desktop{
+                    @include desktopMobileNaglowek('desktop');
+                }
+                .mobile{
+                    @include desktopMobileNaglowek('mobile');
+                }
+            }
+        }
+
+        .menu-dania{
+            #potrawy{
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    list-style-type: none;        
+                    .desktop{
+                        @include desktopMobileDania('desktop');
+                    }
+                    .mobile{
+                        @include desktopMobileDania('mobile');
+                    }
+                }
+            }
+           
+        }
+    }
+    
+} */
+
+.menu-naglowek{
+        margin: 10px 10px 10px 10px;
+        background-color: #ddc391;
+        text-align: center;
+        transition: none !important;
+        box-shadow: none !important;
+        .desktop{
+            @include desktopMobileNaglowek('desktop');
+        }
+        .mobile{
+            @include desktopMobileNaglowek('mobile');
+            .oddzielnik{
+                width: 100%;
+            }
+
+
+            .btn-mobile{
+                padding: 10px 10px 10px 10px;
+                height: 55px;
+                width: 220px;
+                font-family: 'brannboll';
+                font-size: 2em;
+                border: 4px solid  rgb(138, 73, 39);
+                background-color: rgb(138, 73, 39);
+                margin-bottom: 20px;
+                bottom:   0;
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+            }
+
+            button:hover{
+                border: 4px solid  rgb(138, 73, 39);
+                background-color:#ddc391;
+                border-radius: 40px;
+            }
+        }
+
+        .btn-desktop{
+            height: 10%;
+            width: 70%;
+            font-family: 'brannboll';
+            font-size: 2vw;
+            border: 4px solid  #ddc391;
+            background-color: #ddc391;
+            margin-bottom: 20px;
+            position: absolute;
+            bottom:   0;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        
+
+        button:hover{
+            border: 4px solid  #ddc391;
+            background-color:rgb(138, 73, 39);
+            border-radius: 40px;
+        }
+}
+
+.menu-dania{
+    //border: 4px solid black;
+    background-color: #ddc391;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    .segregacja{
+        font-family: 'brannboll';
+        //background-color:red;
+        //padding-top: 50px;
+        font-size: 4em;
+        color: rgba(132, 70, 37, 1);
+    }
+    ul{
+        hr{
+            border: 0;
+             height: 1px;
+              background-image: linear-gradient(to right,
+               rgba(132, 70, 37, 0), 
+               rgba(132, 70, 37, 0.75),
+                rgba(132, 70, 37, 0));
+        }
+        margin-top: 0px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        list-style-type: none;        
+        .desktop{
+            @include desktopMobileDania('desktop');
+        }
+        .mobile{
+            @include desktopMobileDania('mobile');
+        }
+        &:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+}

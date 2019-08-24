@@ -1,0 +1,50 @@
+
+
+<mat-card class="menu-naglowek">
+    <span [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">
+        <img *ngIf="isPhone" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/header-icon.png" alt="">
+        <br>
+        <span class="menu">Nasze Menu</span>
+        <br>
+        <img class="oddzielnik" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/line.png" alt="">
+        <br>
+        <p>Gdy burczy w brzuszku a Ty marzysz o czymś pysznym, sytym i zdrowym</p>
+        <br>
+        <button *ngIf="(isPhone | async)" routerLink="/kontakt" [ngClass]="(isPhone | async ) ? 'btn-mobile': 'btn-desktop' " mat-button>Zamów</button>
+    </span>
+</mat-card>
+
+<mat-card class="menu-dania">
+  <span class="segregacja">Potrway</span>
+  <ul>
+    <li *ngFor="let potrawaInfo of Potrawy" [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">
+        <div>
+            <span class="potrawa">{{potrawaInfo.nazwa}}</span>
+            <hr>
+            <!-- <span class="cena">{{potrawaInfo.cena}} pln/{{potrawaInfo.jednostka}}</span> -->
+        </div>
+    </li>
+  </ul>
+  <span class="segregacja">Zupy</span>
+  <ul>
+      <li *ngFor="let potrawaInfo of Zupy" [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">
+          <div>
+              <span class="potrawa">{{potrawaInfo.nazwa}}</span>
+              <hr>
+              <!-- <span class="cena">{{potrawaInfo.cena}} pln/{{potrawaInfo.jednostka}}</span> -->
+          </div>
+      </li>
+  </ul>
+  <span class="segregacja">Dodatki</span>
+  <ul>
+      <li *ngFor="let potrawaInfo of Dodatki" [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">
+          <div>
+              <span class="potrawa">{{potrawaInfo.nazwa}}</span>
+              <hr>
+              <!-- <span class="cena">{{potrawaInfo.cena}} pln/{{potrawaInfo.jednostka}}</span> -->
+          </div>
+      </li>
+  </ul>
+</mat-card>
+
+

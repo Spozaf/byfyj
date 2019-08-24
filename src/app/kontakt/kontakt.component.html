@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile [rowspan]="(isPhone | async) ? '2' : '1' " [colspan]="(isPhone | async) ? '2' : '1' ">
+        <mat-list role="list" [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">
+            <mat-list-item role="listitem">
+                <p mat-line aria-label=""><img *ngIf="!(isPhone | async)" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/header-icon--white.png" alt=""></p>
+                <h3 mat-line class="miasto">Pszczyna</h3>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">
+                <h4 mat-line>Męczenników Oświęcimskich 1</h4>
+                <p mat-line> 532-321-495 </p>
+                <p mat-line><i class="material-icons md-48">local_dining</i></p>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <h4 mat-line>Bolesława Krzywosutego 1</h4>
+                <p mat-line> 532-321-494 </p>
+                <p mat-line><i class="material-icons md-48">local_dining</i></p>
+            </mat-list-item>
+          </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile class="map" [rowspan]="(isPhone | async) ? '2' : '1' " [colspan]="(isPhone | async) ? '2' : '1' ">
+          <iframe src="https://www.google.com/maps/d/embed?mid=1bTn0U-5oRwDDVIKmejACQKnxzqC8l8D8" ></iframe>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="(isPhone | async) ? '2' : '1' " [colspan]="(isPhone | async) ? '2' : '1' ">
+        <mat-list role="list" [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">
+            <mat-list-item role="listitem">
+                <p mat-line aria-label=""><img *ngIf="!(isPhone | async)" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/header-icon--white.png" alt=""></p>
+                <h3 mat-line class="miasto">Tychy</h3>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">
+                <h4 mat-line>Piłsudskiego 1</h4>
+                <p mat-line> ???-???-??? </p>
+                <p mat-line><i class="material-icons md-48">local_dining</i></p>
+            </mat-list-item>
+          </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile class="map" [rowspan]="(isPhone | async) ? '2' : '1' " [colspan]="(isPhone | async) ? '2' : '1' ">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1yF-f9VlLwWVxxoyMckNtlIZA9MhIk839"></iframe>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>

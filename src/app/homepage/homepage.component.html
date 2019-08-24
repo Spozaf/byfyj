@@ -1,0 +1,157 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile colspan="3" [rowspan]="(isPhone | async) ? '2' : '1' " class="HelloPhoto" >
+    <mat-card>
+      <mat-card-content>
+          <span [ngClass]="(isPhone | async) ? 'title-mobile' : 'title-desktop' " >Pyszna śląska kuchnia</span> 
+          <br>      
+          <img *ngIf="!(isPhone | async)" alt="image" [ngClass]="(isPhone | async ) ? 'img-mobile': 'img-desktop' " src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/devider-white.png">
+          <br>
+          <span *ngIf="!(isPhone | async)" class="slogan">Z najlepszych babcinnych przepisów</span>
+          <br>
+          <button *ngIf="(isPhone | async)" routerLink="/menu" [ngClass]="(isPhone | async ) ? 'btn-mobile': 'btn-desktop' " mat-button>Zobacz</button>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="(isPhone | async) ? '3' : '0.5' " [colspan]="(isPhone | async) ? '3' : '3' " [ngClass]="(isPhone | async) ? 'promocje-mobile' : 'promocje-desktop' ">
+    <img *ngIf="!(isPhone | async)" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/BanerStrona.png" />
+    
+    <mat-card *ngIf="(isPhone | async)">
+      <p *ngIf="(isPhone | async)" class="title"> Wielkie otwarcie</p>
+      <mat-card-content *ngIf="(isPhone | async)">
+        <p>
+          Tychy
+        <br>
+        Ulica Piłsudskiego 1
+        <br>
+        Wtorek 14.05.2019
+        <br>
+        Godzina 10:00
+      </p>
+      </mat-card-content>
+      <mat-card-actions  *ngIf="(isPhone | async)">
+        <button  mat-button
+        routerLink="/kontakt" 
+        [ngClass]="(isPhone | async ) ? 'btn-mobile': 'btn-desktop' " >Zapraszamy!</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  
+
+  <mat-grid-tile [rowspan]="(isPhone | async) ? '3' : '1.5' " [colspan]="(isPhone | async) ? '3' : '1' " class="katry-home">
+      <mat-card>
+          <mat-card-header>
+            <mat-card-title [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">Imprezy</mat-card-title>
+          </mat-card-header>
+          <img class="karta-zdjecie" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/szaszlyk.jpg" />
+          <mat-card-content *ngIf="!(isPhone | async)">
+            <img alt="image" [ngClass]="(isPhone | async ) ? 'img-mobile': 'img-desktop' " src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/devider-white.png">
+            Przyjdą goście, którym kiszki marsza grają? Komunia, chrzciny, wesele, przyjęcie rodzinne?
+            Będzie impreza? Masz pomysł na oryginalne danie?
+            Zadzwoń. Nasza babcia  jest wirtuozem noża i patelni.
+            Wyczaruje wykwintne potrawy na zamówienie w mgnieniu oka.
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-button
+              (click)="openInfoDialog(1)" 
+              class="btn-mobile"
+              *ngIf="(isPhone | async)" >Informacje</button>
+            </mat-card-actions>
+        </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="(isPhone | async) ? '3' : '1.5' " [colspan]="(isPhone | async) ? '3' : '1' " class="katry-home" >
+    <mat-card> 
+      <mat-card-header>
+        <mat-card-title  [ngClass]="(isPhone | async) ? 'mobile srodkowa-karta' : 'desktop srodkowa-karta' ">Catering</mat-card-title>
+      </mat-card-header>
+      <img  class="karta-zdjecie" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/komunia.jpg" />
+      <mat-card-content *ngIf="!(isPhone | async)">
+        <img alt="image" [ngClass]="(isPhone | async ) ? 'img-mobile': 'img-desktop' " src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/devider-white.png">
+        <span>
+            
+
+W naszej ofercie odnajdą Państwo propozycje usług caterigowych skierowane do osób poszukujących doskonałej oprawy kulinarnej dla spotkań spędzanych w prywatnym gronie – w  domu, ogrodzie czy też w wynajętym lokalu.
+
+Oczywiście zapewniamy również dostawę pod wskazany adres.
+
+        </span>
+      </mat-card-content>
+      <mat-card-actions>
+        
+        <button mat-button
+        (click)="openInfoDialog(0)" 
+        class="btn-mobile"
+        *ngIf="(isPhone | async)" >Informacje</button>
+      </mat-card-actions>
+    </mat-card>
+
+    
+
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="(isPhone | async) ? '3' : '1.5' " [colspan]="(isPhone | async) ? '3' : '1' " class="katry-home">
+      <mat-card>
+          <mat-card-header>
+            <mat-card-title [ngClass]="(isPhone | async) ? 'mobile' : 'desktop' ">
+              Obiady
+            </mat-card-title>
+          </mat-card-header>
+          <img class="karta-zdjecie" src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/krem-z-dyni.jpg" />
+          <mat-card-content *ngIf="!(isPhone | async)">
+            <img alt="image" [ngClass]="(isPhone | async ) ? 'img-mobile': 'img-desktop' " src="https://raw.githubusercontent.com/DudaMarcin/byfyjprod/master/docs/assets/devider-white.png">
+            A może trzeba nakarmić dzielną załogę? Wiadomo jak Polak głodny to … nieefektywny. 
+            Z pełnym brzuchem każdy jest chętny do pracy.
+            No i współracuje się lepiej.
+            Szczególnie po naszych pysznościach!
+            Pomożemy – zadzwoń i zamów – my dostarczymy.
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-button
+              (click)="openInfoDialog(2)" 
+              class="btn-mobile"
+              *ngIf="(isPhone | async)" >Informacje</button>
+            </mat-card-actions>
+        </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="(isPhone | async) ? '3' : '1' " [rowspan]="(isPhone | async) ? '2' : '1' " class="Onas-photo" [ngClass]="(isPhone | async) ? 'Onas-photo-mobile' : 'Onas-photo-desktop' ">
+    <mat-card>
+        <mat-card-content>
+        <span [ngClass]="(isPhone | async) ? 'powitanie-mobile' : 'powitanie-desktop' ">Szanowni Państwo!</span>
+        <br *ngIf="(isPhone | async)">
+        <button mat-button
+              (click)="openInfoDialog(3)" 
+              class="btn-mobile"
+              *ngIf="(isPhone | async)" >O nas</button>
+        </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile class="Onas-tekst" colspan="2" *ngIf="!(isPhone | async)">
+    <mat-card>
+      <mat-card-content>
+          <p>
+              Naszą pasją jest kuchnia zdrowa, smaczna i oparta na tradycyjnych recepturach. 
+              Nie używamy żadnych konserwantów, sztucznych dodatków czy nawet gotowych mieszanek przypraw. 
+              Wszystko przygotowujemy tylko i wyłącznie ze świeżych składników. 
+              W  naszej kuchni nie ma miejsca dla mrożonek,  półproduktów, konserwantów czy polepszaczy. 
+              W przygotowanie dań  wkładamy całe serce, zdobytą wiedzę i niemałe już doświadczenie.
+            </p>
+             
+            <p>
+              Naszą dewizą jest tanio i dobrze. A to oznacza, że oferowane posiłki cechuje krótki, 
+              przejrzysty skład, skromne opakowanie, możliwość zakupu na wagę, używanie tylko naturalnych
+              sezonowych składników - przede wszystkim rosnących w naszym klimacie warzyw i owoców. 
+              Dzięki temu są one  źródłem błonnika i zapewniają bogactwo witamin.
+            </p>
+      </mat-card-content>
+    </mat-card>
+      
+      
+
+      
+  </mat-grid-tile>
+
+</mat-grid-list>
+
